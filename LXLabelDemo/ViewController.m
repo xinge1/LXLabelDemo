@@ -19,22 +19,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UILabel *lab=[[UILabel alloc] init];
-    lab.text=@"这是一款简单的UILabel扩展。支持修改字间距，行间距，设置关键字，下划线 ";
+    lab.text=@"一款简单的UILabel。支持修改字间距，行间距，设置关键字，下划线，自定计算宽高并返回";
     //lab.backgroundColor=[UIColor lightGrayColor];
     lab.numberOfLines=0;
     lab.font=[UIFont systemFontOfSize:15];
-    lab.characterSpace=4;//字间距
-    lab.lineSpace=3;//行间距
+    lab.characterSpace=6;//字间距
+    lab.lineSpace=5;//行间距
     //关键字
-    lab.keywords=@"的";
+    lab.keywords=@"关键字";
     lab.keywordsColor=[UIColor redColor];
     lab.keywordsFont=[UIFont systemFontOfSize:20];
     //下划线
-    lab.underlineStr=@"基督哈哈";
+    lab.underlineStr=@"下划线";
     lab.underlineColor=[UIColor redColor];
     //计算label的宽高
-    CGRect h =  [lab getLableHeightWithMaxWidth:160];
-    lab.frame=CGRectMake(10, 100, h.size.width, h.size.height);
+    CGRect h =  [lab getLableHeightWithMaxWidth:300];
+    lab.frame=CGRectMake(40, 100, h.size.width, h.size.height);
     [self.view addSubview:lab];
     
 
