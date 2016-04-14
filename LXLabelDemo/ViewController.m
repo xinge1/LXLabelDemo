@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UILabel *lab=[[UILabel alloc] init];
-    lab.text=@"一款简单的UILabel。支持修改字间距，行间距，设置关键字，下划线，自定计算宽高并返回";
+    lab.text=@"一款简单的UILabel。支持修改字间距，行间距，设置关键字，下划线，自动计算宽高并返回";
     //lab.backgroundColor=[UIColor lightGrayColor];
     lab.numberOfLines=0;
     lab.font=[UIFont systemFontOfSize:15];
