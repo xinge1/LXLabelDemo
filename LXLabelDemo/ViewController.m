@@ -23,6 +23,8 @@
     //lab.backgroundColor=[UIColor lightGrayColor];
     lab.numberOfLines=0;
     lab.font=[UIFont systemFontOfSize:15];
+    lab.textAlignment=NSTextAlignmentCenter;
+    
     lab.characterSpace=6;//字间距
     lab.lineSpace=5;//行间距
     //关键字
@@ -33,8 +35,8 @@
     lab.underlineStr=@"下划线";
     lab.underlineColor=[UIColor redColor];
     //计算label的宽高
-    CGRect h =  [lab getLableRectWithMaxWidth:300];
-    lab.frame=CGRectMake(40, 100, h.size.width, h.size.height);
+    CGSize labSize =  [lab getLableSizeWithMaxWidth:300];
+    lab.frame=CGRectMake(40, 100, labSize.width, labSize.height);
     [self.view addSubview:lab];
     
 

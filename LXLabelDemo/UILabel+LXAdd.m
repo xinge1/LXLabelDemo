@@ -77,14 +77,16 @@
  *
  *  @param maxWidth 最大宽度
  *
- *  @return rect
+ *  @return size
  */
-- (CGRect)getLableRectWithMaxWidth:(CGFloat)maxWidth{
+- (CGSize)getLableSizeWithMaxWidth:(CGFloat)maxWidth{
 
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self.text];
     [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0,self.text.length)];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.alignment=self.textAlignment;
+    paragraphStyle.lineBreakMode=self.lineBreakMode;
     // 行间距
     if(self.lineSpace > 0){
         [paragraphStyle setLineSpacing:self.lineSpace];
@@ -127,9 +129,15 @@
     
     self.attributedText = attributedString;
     
-    CGRect rect = [attributedString boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+    //计算方法一
+    //计算文本rect，但是发现设置paragraphStyle.lineBreakMode=NSLineBreakByTruncatingTail;后高度计算不准确
+    //CGRect rect = [attributedString boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
     
-    return rect;
+    //计算方法二
+    CGSize maximumLabelSize = CGSizeMake(maxWidth, MAXFLOAT);//labelsize的最大值
+    CGSize expectSize = [self sizeThatFits:maximumLabelSize];
+    
+    return expectSize;
 }
 
 

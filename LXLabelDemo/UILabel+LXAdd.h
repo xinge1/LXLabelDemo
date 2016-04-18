@@ -37,7 +37,7 @@
  *
  *  @param maxWidth 最大宽度
  *
- *  @return label的rect
+ *  @return label的size
  */
-- (CGRect)getLableRectWithMaxWidth:(CGFloat)maxWidth;
+- (CGSize)getLableSizeWithMaxWidth:(CGFloat)maxWidth;
 @end
