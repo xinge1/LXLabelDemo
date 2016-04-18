@@ -33,7 +33,7 @@
     lab.underlineStr=@"下划线";
     lab.underlineColor=[UIColor redColor];
     //计算label的宽高
-    CGRect h =  [lab getLableHeightWithMaxWidth:300];
+    CGRect h =  [lab getLableRectWithMaxWidth:300];
     lab.frame=CGRectMake(40, 100, h.size.width, h.size.height);
     [self.view addSubview:lab];
     
